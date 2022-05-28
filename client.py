@@ -22,7 +22,7 @@ def main():
         return 0
 
     while True:
-        data = s.recv(BUF)
+        data = s.recv(4096)
 
         if data[:].decode("utf-8") == "quit":
             s.close()
@@ -44,7 +44,7 @@ def main():
                 output_str = "명령이 실행되지 않았습니다.\n"
                 s.send(str.encode(output_str + str(os.getcwd) + ">"))
 
-        s.close()
+    s.close()
 
 
 main()
